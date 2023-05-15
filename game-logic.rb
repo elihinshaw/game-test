@@ -1,17 +1,24 @@
 require "gosu"
 
-class Test < Gosu::Window
+class Game < Gosu::Window
   def initialize
-    super 640, 480
+    super 1920, 1080, true
     self.caption = "Test Application"
+    @background = Gosu::Color.argb(0xff_00ff00)
     @circle = Gosu::Image.new("/Users/nom/Actualize/gosu/circle.png")
     @red_circle = Gosu::Image.new("/Users/nom/Actualize/gosu/red_circle.png")
+    @switch = Gosu::Image.new("/Users/nom/Actualize/gosu/untoggled-switch.jpeg")
     @circle_radius = (@circle.width / 2)
     @red_circle_radius = (@red_circle.width / 2)
-    @circle_scale = 0.05
+    @circle_scale = 0.03
+  end
+
+  def needs_cursor?
+    false
   end
 
   def draw
+    draw_quad(0, 0, @background, width, 0, @background, width, height, @background, 0, height, @background)
     if button_down?(Gosu::MS_LEFT)
       @red_circle.draw(
         mouse_x - @red_circle_radius * @circle_scale,
