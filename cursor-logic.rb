@@ -35,5 +35,3 @@ class Test < Gosu::Window
     end
   end
 end
-
-Test.new.show
