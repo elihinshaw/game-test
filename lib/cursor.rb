@@ -1,7 +1,7 @@
 class Cursor
   def initialize(window)
-    @circle = Gosu::Image.new("../resources/circle.png")
-    @red_circle = Gosu::Image.new("../resources/red_circle.png")
+    @circle = Gosu::Image.new("resources/circle.png")
+    @red_circle = Gosu::Image.new("resources/red_circle.png")
     @red_circle_radius = (@red_circle.width / 2)
     @circle_scale = 0.03
     @window = window

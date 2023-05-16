@@ -1,6 +1,1 @@
-class Menu
-
-
-
-
-end
+require_relative "switch.rb"
