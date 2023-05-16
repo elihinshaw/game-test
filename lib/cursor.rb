@@ -11,7 +11,7 @@ class Cursor
     @circle.draw(
       x - @red_circle_radius * @circle_scale,
       y - @red_circle_radius * @circle_scale,
-      1,
+      5,
       @circle_scale,
       @circle_scale
     )
@@ -19,7 +19,7 @@ class Cursor
       @red_circle.draw(
         x - @red_circle_radius * @circle_scale,
         y - @red_circle_radius * @circle_scale,
-        1,
+        5,
         @circle_scale,
         @circle_scale
       )
