@@ -1,14 +1,15 @@
 require "gosu"
-require_relative "cursor"
+require_relative "cursor.rb"
+require_relative "../views/options.rb"
 
 class Game < Gosu::Window
   def initialize
     super 1920, 1080, true
     self.caption = "Test Application"
     @background = Gosu::Color.argb(0xff_00ff00)
-    @circle = Gosu::Image.new("circle.png")
-    @red_circle = Gosu::Image.new("red_circle.png")
-    @switch = Gosu::Image.new("untoggled-switch.jpeg")
+    @circle = Gosu::Image.new("../resources/circle.png")
+    @red_circle = Gosu::Image.new("../resources/red_circle.png")
+    @switch = Gosu::Image.new("../resources/untoggled-switch.jpeg")
     @circle_radius = (@circle.width / 2)
     @red_circle_radius = (@red_circle.width / 2)
     @circle_scale = 0.03
