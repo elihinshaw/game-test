@@ -23,9 +23,9 @@ class Game < Gosu::Window
 
   def draw
     draw_quad(0, 0, @background, width, 0, @background, width, height, @background, 0, height, @background)
-    @cursor.draw(mouse_x, mouse_y, button_down?(Gosu::MS_LEFT))
-
     @switch.draw
+
+    @cursor.draw(mouse_x, mouse_y, button_down?(Gosu::MS_LEFT))
 
     if button_down?(Gosu::KB_ESCAPE)
       close
