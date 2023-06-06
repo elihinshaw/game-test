@@ -1,27 +1,31 @@
 # Creates first switch via initialization and the draw method
-class Switch1 < Gosu::Image
+class SwitchOn < Gosu::Image
   def initialize
-    @switch1 = Gosu::Image.new("resources/switch1.jpg")
-    @scale = 1
-    @switch_x = 0
-    @switch_y = 0
+    @switch_on = Gosu::Image.new("resources/switch-on.jpg")
+
+    @scale = 0.1
+
+    $switch_x
+    $switch_y
   end
 
   def draw
-    @switch1.draw(@switch_x, @switch_y, 0, @scale, @scale)
+    @switch_on.draw($switch_x, $switch_y, 0, @scale, @scale)
   end
 end
 
 # Creates second switch via initialization and the draw method
-class Switch2 < Gosu::Image
+class SwitchOff < Gosu::Image
   def initialize
-    @switch1 = Gosu::Image.new("resources/switch2.jpg")
-    @scale = 0.5
-    @switch_x = 0
-    @switch_y = 0
+    @switch_off = Gosu::Image.new("resources/switch-off.jpg")
+
+    @scale = 0.1
+
+    $switch_x
+    $switch_y
   end
 
   def draw
-    @switch1.draw(@switch_x, @switch_y, 1, @scale, @scale)
+    @switch_off.draw($switch_x, $switch_y, 1, @scale, @scale)
   end
 end
