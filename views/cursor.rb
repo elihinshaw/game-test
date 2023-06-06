@@ -1,3 +1,5 @@
+# Creates Cursor class that initalizes and draws the cursors (red and white)
+# This will later be updated to the mouse position constantly
 class Cursor
   def initialize(window)
     @circle = Gosu::Image.new("resources/circle.png")

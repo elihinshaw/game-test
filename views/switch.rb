@@ -1,3 +1,4 @@
+# Creates first switch via initialization and the draw method
 class Switch1 < Gosu::Image
   def initialize
     @switch1 = Gosu::Image.new("resources/switch1.jpg")
@@ -11,6 +12,7 @@ class Switch1 < Gosu::Image
   end
 end
 
+# Creates second switch via initialization and the draw method
 class Switch2 < Gosu::Image
   def initialize
     @switch1 = Gosu::Image.new("resources/switch2.jpg")
