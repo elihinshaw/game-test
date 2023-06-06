@@ -5,7 +5,7 @@ class Cursor
     @circle = Gosu::Image.new("resources/circle.png")
     @red_circle = Gosu::Image.new("resources/red_circle.png")
     @red_circle_radius = (@red_circle.width / 2)
-    @circle_scale = 0.015
+    @circle_scale = 0.02
     @window = window
   end
 

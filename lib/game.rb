@@ -1,5 +1,6 @@
 # Adds required gems and necessary files
 require "gosu"
+require_relative "../views/score.rb"
 require_relative "../views/options.rb"
 require_relative "../views/cursor.rb"
 
@@ -26,6 +27,8 @@ class Game < Gosu::Window
     @circle = Gosu::Image.new("resources/circle.png")
     @red_circle = Gosu::Image.new("resources/red_circle.png")
     @cursor = Cursor.new(self)
+
+    @score = Score.new
   end
 
   # Disables mouse cursor
@@ -36,13 +39,11 @@ class Game < Gosu::Window
   def update
     # Checks if box gets clicked
     if mouse_x <= ($switch_x.to_f + 54) && mouse_y <= ($switch_y.to_f + 36) && mouse_x >= $switch_x && mouse_y >= $switch_y.to_f && button_down?(Gosu::MS_LEFT)
+      p "hello"
       $switch_x = rand(20..460)
       $switch_y = rand(20..250)
     end
   end
-
-  p $switch_x
-  p $switch_y
 
   def draw
     # Draw background
@@ -53,6 +54,8 @@ class Game < Gosu::Window
 
     # Draws cursor to mouse position
     @cursor.draw(mouse_x, mouse_y, button_down?(Gosu::MS_LEFT))
+
+    @font.draw_text("#{$score}", 0, 0, 0, 0, 0, 0x89cff0)
 
     # Closes application if escape is pressed
     if button_down?(Gosu::KB_ESCAPE)

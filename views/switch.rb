@@ -7,6 +7,8 @@ class SwitchOn < Gosu::Image
 
     $switch_x
     $switch_y
+
+    @clicked = false
   end
 
   def draw
