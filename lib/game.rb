@@ -1,11 +1,12 @@
 # Adds required gems and necessary files
 require "gosu"
-require_relative "../views/score.rb"
 require_relative "../views/options.rb"
 require_relative "../views/cursor.rb"
 
 $switch_x = 540
 $switch_y = 200
+$score = 0
+$a = "+100!"
 
 class Game < Gosu::Window
   def initialize
@@ -28,7 +29,8 @@ class Game < Gosu::Window
     @red_circle = Gosu::Image.new("resources/red_circle.png")
     @cursor = Cursor.new(self)
 
-    @score = Score.new
+    @font = Gosu::Font.new(self, Gosu::default_font_name, 35)
+    @font2 = Gosu::Font.new(self, Gosu::default_font_name, 20)
   end
 
   # Disables mouse cursor
@@ -36,12 +38,18 @@ class Game < Gosu::Window
     false
   end
 
+  def button_down(id)
+    @clicked = true if id == Gosu::MS_LEFT
+  end
+
   def update
     # Checks if box gets clicked
-    if mouse_x <= ($switch_x.to_f + 54) && mouse_y <= ($switch_y.to_f + 36) && mouse_x >= $switch_x && mouse_y >= $switch_y.to_f && button_down?(Gosu::MS_LEFT)
+    if mouse_x <= ($switch_x.to_f + 54) && mouse_y <= ($switch_y.to_f + 36) && mouse_x >= $switch_x && mouse_y >= $switch_y.to_f && @clicked
       p "hello"
-      $switch_x = rand(20..460)
-      $switch_y = rand(20..250)
+      $switch_x = rand(100..860)
+      $switch_y = rand(100..440)
+      $score += 100
+      @clicked = false
     end
   end
 
@@ -55,7 +63,7 @@ class Game < Gosu::Window
     # Draws cursor to mouse position
     @cursor.draw(mouse_x, mouse_y, button_down?(Gosu::MS_LEFT))
 
-    @font.draw_text("#{$score}", 0, 0, 0, 0, 0, 0x89cff0)
+    @font.draw("SCORE: #{$score}", 20, 20, 0, 1, 1, Gosu::Color::BLACK)
 
     # Closes application if escape is pressed
     if button_down?(Gosu::KB_ESCAPE)
