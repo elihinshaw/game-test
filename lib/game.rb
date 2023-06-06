@@ -45,7 +45,6 @@ class Game < Gosu::Window
   def update
     # Checks if box gets clicked
     if mouse_x <= ($switch_x.to_f + 54) && mouse_y <= ($switch_y.to_f + 36) && mouse_x >= $switch_x && mouse_y >= $switch_y.to_f && @clicked
-      p "hello"
       $switch_x = rand(100..860)
       $switch_y = rand(100..440)
       $score += 100
@@ -63,7 +62,7 @@ class Game < Gosu::Window
     # Draws cursor to mouse position
     @cursor.draw(mouse_x, mouse_y, button_down?(Gosu::MS_LEFT))
 
-    @font.draw("SCORE: #{$score}", 20, 20, 0, 1, 1, Gosu::Color::BLACK)
+    @font.draw_text("SCORE: #{$score}", 20, 20, 0, 1, 1, Gosu::Color::BLACK)
 
     # Closes application if escape is pressed
     if button_down?(Gosu::KB_ESCAPE)
