@@ -17,9 +17,9 @@
 # end
 
 # Creates second switch via initialization and the draw method
-class SwitchOff < Gosu::Image
+class Square < Gosu::Image
   def initialize
-    @switch_off = Gosu::Image.new("resources/switch-off.jpg")
+    @square = Gosu::Image.new("resources/switch-off.jpg")
 
     $scale = 0.1
 
@@ -28,6 +28,6 @@ class SwitchOff < Gosu::Image
   end
 
   def draw
-    @switch_off.draw($switch_x, $switch_y, 1, $scale, $scale)
+    @square.draw($switch_x, $switch_y, 1, $scale, $scale)
   end
 end
