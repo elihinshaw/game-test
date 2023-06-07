@@ -6,7 +6,6 @@ require_relative "../views/cursor.rb"
 $switch_x = 540
 $switch_y = 200
 $score = 0
-$a = "+100!"
 
 class Game < Gosu::Window
   def initialize
@@ -29,6 +28,7 @@ class Game < Gosu::Window
     @red_circle = Gosu::Image.new("resources/red_circle.png")
     @cursor = Cursor.new(self)
 
+    # Adds score text
     @font = Gosu::Font.new(self, Gosu::default_font_name, 35)
     @font2 = Gosu::Font.new(self, Gosu::default_font_name, 20)
   end
@@ -44,7 +44,8 @@ class Game < Gosu::Window
 
   def update
     # Checks if box gets clicked
-    if mouse_x <= ($switch_x.to_f + 54) && mouse_y <= ($switch_y.to_f + 36) && mouse_x >= $switch_x && mouse_y >= $switch_y.to_f && @clicked
+    case
+    when mouse_x <= ($switch_x.to_f + 54) && mouse_y <= ($switch_y.to_f + 36) && mouse_x >= $switch_x && mouse_y >= $switch_y.to_f && @clicked
       $switch_x = rand(100..860)
       $switch_y = rand(100..440)
       $score += 100
@@ -62,6 +63,7 @@ class Game < Gosu::Window
     # Draws cursor to mouse position
     @cursor.draw(mouse_x, mouse_y, button_down?(Gosu::MS_LEFT))
 
+    # Draws score text
     @font.draw_text("SCORE: #{$score}", 20, 20, 0, 1, 1, Gosu::Color::BLACK)
 
     # Closes application if escape is pressed
