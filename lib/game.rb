@@ -19,8 +19,8 @@ class Game < Gosu::Window
     @background = Gosu::Color.argb(0xff2c3e50)
 
     # Creates and initalizes new switches from Switch classes in switch.rb
-    @switch = Gosu::Image.new("resources/untoggled-switch.jpeg")
-    @switch_on = SwitchOn.new
+    # @switch = Gosu::Image.new("resources/untoggled-switch.jpeg")
+    # @switch_on = SwitchOn.new
     @switch_off = SwitchOff.new
 
     # Creates and initializes cursor's variables from Cursor class in cursor.rb
