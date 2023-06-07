@@ -11,7 +11,7 @@ class Menu < Gosu::Window
 
     # Creates and initializes cursor's variables from Cursor class in cursor.rb
     @circle = Gosu::Image.new("resources/circle.png")
-    @red_circle = Gosu::Image.new("resources/red_circle.png")
+    @black_circle = Gosu::Image.new("resources/black_circle.png")
     @cursor = Cursor.new(self)
   end
 
