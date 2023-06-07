@@ -31,6 +31,11 @@ class Game < Gosu::Window
     # Adds score text
     @font = Gosu::Font.new(self, Gosu::default_font_name, 35)
     @font2 = Gosu::Font.new(self, Gosu::default_font_name, 20)
+
+    # Adds a timer and text
+    @timer = Time.now + 60
+
+    @font3 = Gosu::Font.new(self, Gosu::default_font_name, 35)
   end
 
   # Disables mouse cursor
@@ -38,6 +43,7 @@ class Game < Gosu::Window
     false
   end
 
+  # Adds a "clicked" status
   def button_down(id)
     @clicked = true if id == Gosu::MS_LEFT
   end
@@ -50,6 +56,12 @@ class Game < Gosu::Window
       $switch_y = rand(100..440)
       $score += 100
       @clicked = false
+    end
+
+    # Checks if timer is complete
+    if Time.now >= @timer
+      close
+      puts "YOUR FINAL SCORE WAS: #{$score}!"
     end
   end
 
@@ -66,6 +78,9 @@ class Game < Gosu::Window
     # Draws score text
     @font.draw_text("SCORE: #{$score}", 20, 20, 0, 1, 1, Gosu::Color::BLACK)
 
+    # Draws timer on screen
+    remaining_time = [@timer - Time.now, 0].max.to_i
+    @font3.draw_text("Timer: #{remaining_time}", 800, 20, 0, 1, 1, Gosu::Color::BLACK)
     # Closes application if escape is pressed
     if button_down?(Gosu::KB_ESCAPE)
       close
