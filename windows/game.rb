@@ -3,7 +3,7 @@ require "gosu"
 
 require_relative "../views/square.rb"
 require_relative "../views/cursor.rb"
-require_relative "EndScreen.rb"
+require_relative "end-screen.rb"
 
 $switch_x = 540
 $switch_y = 200
@@ -35,7 +35,7 @@ class Game < Gosu::Window
     @font2 = Gosu::Font.new(self, Gosu::default_font_name, 20)
 
     # Adds a timer and text
-    @timer = Time.now + 5
+    @timer = Time.now + 15
     @font3 = Gosu::Font.new(self, Gosu::default_font_name, 35)
   end
 
