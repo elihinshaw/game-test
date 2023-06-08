@@ -81,6 +81,7 @@ class Game < Gosu::Window
     # Draws timer on screen
     remaining_time = [@timer - Time.now, 0].max.to_i
     @font3.draw_text("Timer: #{remaining_time}", 800, 20, 0, 1, 1, Gosu::Color::BLACK)
+
     # Closes application if escape is pressed
     if button_down?(Gosu::KB_ESCAPE)
       close
